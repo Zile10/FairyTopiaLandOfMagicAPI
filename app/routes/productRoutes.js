@@ -34,7 +34,7 @@ router.post("/", (req, res) => {
 // Get Specific product based on id
 router.get("/:productId", (req, res) => {
   try {
-    con.query(`SELECT * FROM users where productId = ?`, [req.params.productId], (err, result) => {
+    con.query(`SELECT * FROM users where productId = ?`, +[req.params.productId], (err, result) => {
       if (err) throw err;
       res.send(result);
     });
